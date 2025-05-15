@@ -31,7 +31,7 @@ class TaskController extends Controller
     ]);
 
     $task = Task::create($data);
-    return response()->json($task);
+    return response()->json($task, 201, ['Location' => route('tasks.show', $task->id)]);
   }
 
   public function update(Request $request, Task $task)

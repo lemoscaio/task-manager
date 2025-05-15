@@ -7,14 +7,20 @@ use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+
 
 class TaskController extends Controller
 {
 
-  public function index()
+  public function index(Request $request)
   {
-    $tasks = Task::query()->get();
+    $sort = $request->query('sort', 'created_at');
+    $direction = $request->query('direction', 'desc');
+    $status = $request->query('status');
+
+    $tasks = Task::query()->when($status, function ($query) use ($status) {
+      $query->where('status', $status);
+    })->orderBy($sort, $direction)->get();
 
     return response()->json($tasks);
   }

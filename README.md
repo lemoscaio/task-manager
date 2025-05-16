@@ -239,7 +239,29 @@ curl "http://localhost:8000/api/tasks?sort=created_at&direction=desc"
 
 ## 📦 Using Postman Collections
 
-To be created...
+A ready-to-use Postman collection is provided in the [`Postman Collections/collection.json`](Postman%20Collections/collection.json) file. You can use this collection to quickly test and explore the API endpoints.
+
+### How to Import the Collection into Postman
+
+#### Import from Local Folder
+
+1. Open Postman.
+2. Click the **Import** button in the sidebar (or use `File > Import`).
+3. In the dialog, select **Upload Files**.
+4. Navigate to the `Postman Collections` folder in this repository and select `collection.json`.
+5. Click **Open**. The collection will appear in your Postman workspace.
+
+#### Alternative: Drag and Drop
+
+- Simply drag the `collection.json` file from your file explorer into the Postman window.
+
+#### More Import Options
+
+For more details and advanced options (including importing from remote Git repositories), see the official Postman documentation: [Import data from a Git repository](https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-git/).
+
+Once imported, you can use the collection to send requests to your local API server (by default, `http://localhost:8000/api`).
+
+> **Tip:** If you change the API base URL, update the `apiUrl` variable in the collection or in your Postman environment.
 
 ## 📝 API Documentation
 

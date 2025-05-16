@@ -125,6 +125,22 @@ This project uses **[Laravel Sail](https://laravel.com/docs/12.x/sail)** to prov
 
 ### Quick Start
 
+**Before starting Sail, update your `.env` file:**
+
+- By default, the `.env` file is preconfigured for SQLite, but Sail uses MySQL. Update the following values in your `.env` file:
+  ```env
+  DB_CONNECTION=mysql
+  DB_HOST=mysql
+  DB_PORT=3306
+  DB_DATABASE=laravel
+  DB_USERNAME=sail
+  DB_PASSWORD=password
+  ```
+- Set the application port to `8000` so the container runs on the same port as the local setup. This makes it easier to use the sample cURL and Postman requests:
+  ```env
+  APP_PORT=8000
+  ```
+
 1. **Start Sail (Docker containers):**
    ```bash
    ./vendor/bin/sail up

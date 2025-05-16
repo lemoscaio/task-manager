@@ -14,7 +14,7 @@ class TaskController extends Controller
 
   public function index(Request $request)
   {
-    $sort = $request->query('sort', 'created_at');
+    $sort = $request->query('sort', 'id');
     $direction = $request->query('direction', 'desc');
     $status = $request->query('status');
 

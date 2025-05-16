@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "fa554965-bc17-409c-8133-cd4f657364fb",
+		"name": "Task Manager Laravel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all tasks",
+			"id": "d4234849-f7e4-4995-9f7e-ba81d8ae9d45",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{apiUrl}}/tasks"
+			},
+			"response": []
+		},
+		{
+			"name": "List all tasks (with sorting and filter by status)",
+			"id": "50a8c054-e2f9-492f-96b9-c2fad70fe2c5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{apiUrl}}/tasks?sort=id&direction=desc&status=pending",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "id",
+							"description": "Value to sort. Any Task property is available."
+						},
+						{
+							"key": "direction",
+							"value": "desc",
+							"description": "Direction of sorting. \"asc\" or \"desc\"."
+						},
+						{
+							"key": "status",
+							"value": "pending",
+							"description": "Filter task by status."
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List task by ID",
+			"id": "c7f26713-eab1-425a-843d-de9c29185f38",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{apiUrl}}/tasks/:id",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"tasks",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1",
+							"description": "ID of the task"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new task",
+			"id": "47c41448-6730-420f-9e27-309afb7a3b57",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Buy groceries\",\n    \"description\": \"Milk, eggs, bread\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{apiUrl}}/tasks"
+			},
+			"response": []
+		},
+		{
+			"name": "Update task",
+			"id": "77827578-8df2-4c63-8b72-640bf9544bb9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Buy groceries\",\n    \"description\": \"Milk, eggs, bread\",\n    \"status\": \"in_progress\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{apiUrl}}/tasks/:id",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"tasks",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1",
+							"description": "ID of the task"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete task",
+			"id": "f3738e35-654e-4afb-a10d-95d3e9cee439",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{apiUrl}}/tasks/:id",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"tasks",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1",
+							"description": "ID of the task"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

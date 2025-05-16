@@ -266,4 +266,27 @@ Once imported, you can use the collection to send requests to your local API ser
 
 ## 📝 API Documentation
 
-To be created...
+### Swagger UI (Interactive API Docs)
+
+This project includes an interactive API documentation powered by **Swagger UI**. You can use it to explore, test, and understand all available endpoints and their request/response formats.
+
+#### How to Access
+
+- **URL:** [http://localhost:8000/api/docs](http://localhost:8000/api/docs)
+
+  > If you are running the app on a different host or port, adjust the URL accordingly.
+
+- The Swagger UI is automatically generated from the OpenAPI spec at `resources/swagger/openapi.json`.
+
+#### Access Control
+
+- By default, access to the Swagger UI may be restricted. If you see a 403 Forbidden error, you may need to update the authorization logic in `app/Providers/SwaggerUiServiceProvider.php` to allow your user/email.
+- The default middleware is set in `config/swagger-ui.php` and uses `EnsureUserIsAuthorized`.
+
+#### Features
+
+- Browse all endpoints, parameters, and models
+- Try out requests directly from the browser
+- View example requests and responses
+
+---

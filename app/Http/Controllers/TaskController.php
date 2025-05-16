@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\TaskStatus;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;

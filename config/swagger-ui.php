@@ -43,7 +43,7 @@ return [
             /*
              * If enabled the file will be modified to set the server url and oauth urls.
              */
-            'modify_file' => true,
+            'modify_file' => false,
 
             /*
              * The server URL configuration for the swagger file.

@@ -140,6 +140,7 @@ This project uses **[Laravel Sail](https://laravel.com/docs/12.x/sail)** to prov
   ```env
   APP_PORT=8000
   ```
+  Note: the logs may say "running on port 80" but this is because this log is from the Docker container. Docker is exposing port 80 to port 8000 on your local machine. You should still use `http://localhost:8000/api` to access the API.
 
 1. **Start Sail (Docker containers):**
    ```bash

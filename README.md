@@ -99,7 +99,7 @@ By default, this project uses SQLite for simplicity.
 php artisan migrate
 ```
 
-### 6. (OPTIONAL) Populate the database with some data (if you want to)
+### 6. (Optional) Populate the database with some data (if you want to)
 
 ```bash
 php artisan db:seed
@@ -117,7 +117,63 @@ The API will be available at `http://localhost:8000/api`.
 
 ## 🐳 Running with Docker
 
-To be created...
+This project uses **[Laravel Sail](https://laravel.com/docs/12.x/sail)** to provide a simple Docker-based development environment. Sail makes it easy to run Laravel projects in Docker containers, so you don't need to install PHP, Composer, or a database server on your local machine.
+
+### Quick Start
+
+1. **Start Sail (Docker containers):**
+   ```bash
+   ./vendor/bin/sail up
+   ```
+   This will build and start the containers in the background. The first run may take a few minutes as Docker images are downloaded and built.
+
+2. **Run Migrations:**
+   ```bash
+   ./vendor/bin/sail artisan migrate
+   ```
+   > This is the same as running `php artisan migrate`, but inside the Docker container.
+
+3. **(Optional) Populate the database with some data (if you want to):**
+   ```bash
+   ./vendor/bin/sail artisan db:seed
+   ```
+   > This will populate the database with sample data, just like in the local setup instructions above.
+
+All commands above are executed inside the Docker container using Sail.
+
+---
+
+### (Optional) Create a Sail Alias
+
+To make running Sail commands easier, you can add this alias to your shell:
+
+```bash
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+```
+
+After adding the alias, you can use shorter commands:
+
+```bash
+sail up
+sail artisan migrate
+sail artisan db:seed
+```
+
+---
+
+### Rebuilding Sail Images
+
+If you need to rebuild the Docker images (for example, after changing dependencies or configuration), run:
+
+```bash
+docker compose down -v
+sail build --no-cache
+sail up
+```
+
+---
+
+For more details, see the [Laravel Sail documentation](https://laravel.com/docs/12.x/sail).
 
 ---
 

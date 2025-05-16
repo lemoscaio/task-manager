@@ -1,5 +1,15 @@
 # Simple Task Manager REST API
 
+## Table of Contents
+
+- [Project Scope](#project-scope)
+- [Functionality](#functionality)
+- [Setup Instructions (Running Locally)](#setup-instructions-running-locally)
+- [Running with Docker](#running-with-docker)
+- [Sample Requests (cURL)](#sample-requests-curl)
+- [Using Postman Collections](#using-postman-collections)
+- [API Documentation](#api-documentation)
+
 ## 📋 Project Scope
 
 This project is a **RESTful API** for managing tasks, built with **Laravel 12**. It is designed as a backend-only service (no frontend), following modern API best practices. The API allows users to create, read, update, and delete tasks, with all data persisted in a database (using Eloquent ORM and SQLite by default).
@@ -10,8 +20,6 @@ This project is ideal for learning or demonstrating:
 - RESTful design patterns
 - Request validation and API resource formatting
 - Clean code organization (controllers, models, routes, migrations)
-
----
 
 ## Functionality
 
@@ -41,8 +49,6 @@ This project is ideal for learning or demonstrating:
 - Sort tasks by property: `GET /api/tasks?sort=created_at&direction=desc`
 
   > You can use any task property (e.g., `id`, `title`, `status`, `created_at`, `updated_at`) as the value for the `sort` parameter. The `direction` parameter accepts `asc` (ascending) or `desc` (descending), with `desc` as the default if not specified.
-
----
 
 ## 🛠️ Setup Instructions (Running Locally)
 
@@ -113,8 +119,6 @@ php artisan serve
 
 The API will be available at `http://localhost:8000/api`.
 
----
-
 ## 🐳 Running with Docker
 
 This project uses **[Laravel Sail](https://laravel.com/docs/12.x/sail)** to provide a simple Docker-based development environment. Sail makes it easy to run Laravel projects in Docker containers, so you don't need to install PHP, Composer, or a database server on your local machine.
@@ -141,8 +145,6 @@ This project uses **[Laravel Sail](https://laravel.com/docs/12.x/sail)** to prov
 
 All commands above are executed inside the Docker container using Sail.
 
----
-
 ### (Optional) Create a Sail Alias
 
 To make running Sail commands easier, you can add this alias to your shell:
@@ -159,8 +161,6 @@ sail artisan migrate
 sail artisan db:seed
 ```
 
----
-
 ### Rebuilding Sail Images
 
 If you need to rebuild the Docker images (for example, after changing dependencies or configuration), run:
@@ -171,11 +171,7 @@ sail build --no-cache
 sail up
 ```
 
----
-
 For more details, see the [Laravel Sail documentation](https://laravel.com/docs/12.x/sail).
-
----
 
 ## 🧪 Sample Requests (cURL)
 
@@ -224,8 +220,6 @@ curl http://localhost:8000/api/tasks?status=done
 ```bash
 curl "http://localhost:8000/api/tasks?sort=created_at&direction=desc"
 ```
-
----
 
 ## 📦 Using Postman Collections
 
